@@ -9,5 +9,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['vue'],
-  rules: {},
+  rules: {
+    'new-cap': 0,
+  },
 };
