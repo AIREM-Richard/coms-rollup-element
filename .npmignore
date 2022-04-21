@@ -18,5 +18,5 @@ npm-debug.log
 yarn.lock
 .eslintrc.js
 .babelrc
-.commitlint.config.js
+commitlint.config.js
 prettier.config.js
