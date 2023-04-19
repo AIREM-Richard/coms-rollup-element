@@ -21,7 +21,7 @@
     ></el-option>
     <el-option
       v-for="(item, index) in options"
-      :key="optionskey?item[optionskey]:index"
+      :key="optionskey ? item[optionskey] : index"
       :label="item[optionsLabel]"
       :value="item[optionsValue]"
     />
@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: "AcSelect",
+  name: 'AcSelect',
   data() {
     return {
       keyword: null, // 存储关键字用
@@ -58,11 +58,11 @@ export default {
     },
     optionsLabel: {
       type: String,
-      default: "label",
+      default: 'label',
     },
     optionsValue: {
       type: String,
-      default: "value",
+      default: 'value',
     },
     // 调用页数的接口
     request: {
@@ -81,11 +81,11 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "请选择",
+      default: '请选择',
     },
     size: {
       type: String,
-      default: "middle",
+      default: 'middle',
     },
     alternative: {
       type: Boolean,
@@ -93,7 +93,7 @@ export default {
     },
     defaultLabel: {
       type: String,
-      default: "无",
+      default: '无',
     },
     defaultValue: {
       type: Number,
@@ -106,7 +106,7 @@ export default {
         return this.selected;
       },
       set(val) {
-        this.$emit("update:selected", val);
+        this.$emit('update:selected', val);
       },
     },
     currentPage: {
@@ -114,14 +114,14 @@ export default {
         return this.page;
       },
       set(val) {
-        this.$emit("update:page", val);
+        this.$emit('update:page', val);
       },
     },
   },
   methods: {
     async fetchRequest(params) {
       let currentParams;
-      if (typeof params === "string") {
+      if (typeof params === 'string') {
         this.currentPage = 1;
         currentParams = {
           keyword: params,
@@ -141,7 +141,7 @@ export default {
       if (this.keyword) {
         this.keyword = null;
         this.currentPage = 1;
-        let payload = { keyword: this.keyword };
+        let payload = {keyword: this.keyword};
         this.fetchRequest(payload);
       }
     },
@@ -150,13 +150,13 @@ export default {
         setTimeout(() => {
           this.keyword = null;
           this.currentPage = 1;
-          this.fetchRequest({ keyword: this.keyword });
+          this.fetchRequest({keyword: this.keyword});
         }, 200);
       }
     },
     filter(val) {
-      this.keyword = val
-      this.fetchRequest({keyword: this.keyword})
+      this.keyword = val;
+      this.fetchRequest({keyword: this.keyword});
     },
     loadMore() {
       // 如果没有更多数据，则不请求

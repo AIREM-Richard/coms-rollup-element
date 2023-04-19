@@ -4,7 +4,7 @@ const onlyNumber = {
     // vDir.value 有指令的参数
     let content;
     // 设置输入框的值,触发input事件,改变v-model绑定的值
-    const setVal = val => {
+    const setVal = (val) => {
       if (vNode.componentInstance) {
         // 如果是自定义组件就触发自定义组件的input事件
         vNode.componentInstance.$emit('input', val);
@@ -15,7 +15,7 @@ const onlyNumber = {
       }
     };
     // 按键按下=>只允许输入数字/小数点
-    el.addEventListener('keypress', event => {
+    el.addEventListener('keypress', (event) => {
       const e = event || window.event;
       const inputKey = String.fromCharCode(
         typeof e.charCode === 'number' ? e.charCode : e.keyCode,
@@ -40,7 +40,7 @@ const onlyNumber = {
       }
     });
     // 按键弹起=>并限制最大最小
-    el.addEventListener('keyup', event => {
+    el.addEventListener('keyup', (event) => {
       const e = event || window.event;
       content = parseFloat(e.target.value);
       // console.log('按键弹起',content)
@@ -65,7 +65,7 @@ const onlyNumber = {
       }
     });
     // 失去焦点=>保留指定位小数
-    el.addEventListener('focusout', event => {
+    el.addEventListener('focusout', (event) => {
       // 此处会在 el-input 的 @change 后执行
       const e = event || window.event;
       content = parseFloat(e.target.value);
@@ -101,6 +101,6 @@ const onlyNumber = {
   },
 };
 
-onlyNumber.install = Vue => Vue.directive('onlyNumber', onlyNumber);
+onlyNumber.install = (Vue) => Vue.directive('onlyNumber', onlyNumber);
 
 export default onlyNumber;

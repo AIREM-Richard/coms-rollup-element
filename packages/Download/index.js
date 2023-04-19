@@ -1,7 +1,7 @@
-import { Message, MessageBox } from 'element-ui';
+import {Message, MessageBox} from 'element-ui';
 const download = {
   install(Vue, options) {
-    const $isJSON = str => {
+    const $isJSON = (str) => {
       if (typeof str == 'string') {
         try {
           JSON.parse(str);
@@ -15,7 +15,7 @@ const download = {
       if (!data) return;
       const reader = new FileReader();
       reader.readAsText(data.data);
-      reader.onload = e => {
+      reader.onload = (e) => {
         const isJson = $isJSON(e.currentTarget.result);
         if (isJson) {
           const result = JSON.parse(e.currentTarget.result);
@@ -41,7 +41,7 @@ const download = {
             successCallback();
           }
           if (msg) {
-            MessageBox.alert(msg, '提示', { confirmButtonText: '确定' });
+            MessageBox.alert(msg, '提示', {confirmButtonText: '确定'});
           }
           const fileName = data.headers['content-disposition']
             .match(/filename=(\S*)/)[1]

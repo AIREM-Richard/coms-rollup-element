@@ -7,8 +7,9 @@
       :round="round"
       @click="upload"
       v-if="show"
-      >{{ text }}</el-button
     >
+      {{ text }}
+    </el-button>
     <span v-else @click="upload">{{ fileName }}</span>
   </div>
 </template>
@@ -55,7 +56,7 @@ export default {
       const fileData = e.target.files[0];
       this.fileName = fileData.name;
       this.show = false;
-      this.$emit('upload', { file: fileData });
+      this.$emit('upload', {file: fileData});
     },
     upload() {
       if (this.before && !this.before()) return;

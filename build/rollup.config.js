@@ -1,17 +1,17 @@
 import vue from 'rollup-plugin-vue';
 
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { name } from '../package.json';
+import {nodeResolve} from '@rollup/plugin-node-resolve';
+import {name} from '../package.json';
 import postcss from 'rollup-plugin-postcss';
 import postcssImport from 'postcss-import';
-import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
-import { terser } from 'rollup-plugin-terser';
+import commonjs from '@rollup/plugin-commonjs';
+import babel from '@rollup/plugin-babel';
+import terser from '@rollup/plugin-terser';
 import strip from '@rollup/plugin-strip';
 
-const file = type => `dist/${name}.${type}.js`;
+const file = (type) => `dist/${name}.${type}.js`;
 
-export { name, file };
+export {name, file};
 export default {
   input: 'packages/index.js',
   output: {

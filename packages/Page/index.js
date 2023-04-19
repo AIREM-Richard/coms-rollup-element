@@ -1,5 +1,5 @@
-import AcPage from './src/index.vue'
+import AcPage from './src/index.vue';
 
-AcPage.install = Vue => Vue.component(AcPage.name,AcPage)
+AcPage.install = (Vue) => Vue.component(AcPage.name, AcPage);
 
-export default AcPage
+export default AcPage;

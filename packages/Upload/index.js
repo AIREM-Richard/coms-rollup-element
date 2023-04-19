@@ -1,5 +1,5 @@
-import AcUplaod from './src/index.vue'
+import AcUplaod from './src/index.vue';
 
-AcUplaod.install = Vue => Vue.component(AcUplaod.name,AcUplaod)
+AcUplaod.install = (Vue) => Vue.component(AcUplaod.name, AcUplaod);
 
-export default AcUplaod
+export default AcUplaod;

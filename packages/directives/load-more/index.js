@@ -18,5 +18,5 @@ const loadmore = {
     });
   },
 };
-loadmore.install = Vue => Vue.directive('loadmore', loadmore);
+loadmore.install = (Vue) => Vue.directive('loadmore', loadmore);
 export default loadmore;
