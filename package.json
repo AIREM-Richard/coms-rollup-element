@@ -1,5 +1,5 @@
 {
-  "name": "ac-common-components",
+  "name": "test-components",
   "version": "1.1.2",
   "main": "dist/ac-common-components.esm.js",
   "author": "yxy",
@@ -8,13 +8,14 @@
     "lint:lint-staged": "lint-staged",
     "commit": "cz",
     "build": "npm run clean && npm run build:esm && npm run build:umd",
+    "build2": "npm run clean && npm run build:esm ",
     "build:esm": "rollup  --config build/rollup.esm.config.js",
     "build:umd": "rollup --config build/rollup.umd.config.js",
     "clean": "rimraf ./dist"
   },
   "dependencies": {
     "core-js": "^3.22.0",
-    "element-ui": "^2.11.1",
+    "element-ui": "^2.15.13",
     "vue": "2.6.10"
   },
   "devDependencies": {

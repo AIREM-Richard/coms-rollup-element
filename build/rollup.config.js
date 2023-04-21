@@ -8,17 +8,36 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 import strip from '@rollup/plugin-strip';
+import {readdirSync, statSync, existsSync} from 'fs';
+import path from 'path';
 
-const file = (type) => `dist/${name}.${type}.js`;
+const file = type => `dist/${name}.${type}.js`;
+
+const inputFiles = {
+  main: 'packages/index.js',
+};
+
+const comsPath = path.resolve(__dirname, '../packages/components');
+const dirs = readdirSync(comsPath);
+
+dirs.forEach(d => {
+  const comPath = path.resolve(comsPath, d);
+  if (statSync(comPath).isDirectory) {
+    const indexFilePath = path.resolve(comsPath, d, 'index.js');
+    if (existsSync(indexFilePath)) {
+      inputFiles[d.toLowerCase()] = indexFilePath;
+    }
+  }
+});
 
 export {name, file};
 export default {
-  input: 'packages/index.js',
-  output: {
-    name,
-    file: file('esm'),
-    format: 'es',
-  },
+  input: inputFiles,
+  // output: {
+  //   name,
+  //   file: file('esm'),
+  //   format: 'es',
+  // },
   plugins: [
     nodeResolve(),
     babel({
@@ -43,5 +62,5 @@ export default {
       labels: ['unittest'],
     }),
   ],
-  external: ['vue'],
+  external: [/element-ui/],
 };

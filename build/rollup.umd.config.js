@@ -1,14 +1,16 @@
-import basicConfig, { name, file } from './rollup.config'
+import basicConfig, {name, file} from './rollup.config';
 export default {
   ...basicConfig,
   output: {
     name: 'well-bricks',
-    file: file('umd'),
+    // file: file('umd'),
     format: 'umd',
     globals: {
-      'vue': 'Vue',
-      'lodash-es': '_'
+      vue: 'Vue',
+      'lodash-es': '_',
     },
-    exports: 'named'
-  }
-}
+    exports: 'named',
+    dir: 'lib',
+    entryFileNames: 'entry-[name].js',
+  },
+};

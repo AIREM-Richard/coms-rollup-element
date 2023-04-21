@@ -1,9 +1,11 @@
-import basicConfig, { name, file } from './rollup.config'
+import basicConfig, {name, file} from './rollup.config';
 export default {
   ...basicConfig,
   output: {
     name,
-    file: file('esm'),
-    format: 'es'
-  }
-}
+    // file: file('esm'),
+    format: 'es',
+    dir: 'lib',
+    entryFileNames: 'entry-[name].js',
+  },
+};

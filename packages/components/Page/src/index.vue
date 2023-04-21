@@ -40,7 +40,6 @@ export default {
     total: {
       required: true,
       type: Number,
-      default: 0,
     },
     layout: {
       type: String,

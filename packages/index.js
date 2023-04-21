@@ -1,6 +1,6 @@
-import AcPage from './Page/index.js';
-import AcUplaod from './Upload/index.js';
-import AcSelect from './Select/index.js';
+import AcPage from './components/Page/index.js';
+import AcUplaod from './components/Upload/index.js';
+import AcSelect from './components/Select/index.js';
 import Download from './Download/index.js';
 import loadmore from './directives/load-more/index.js';
 import onlyNumber from './directives/only-number/index.js';
@@ -26,13 +26,13 @@ const vueInstanceFun = {
 const install = function (Vue) {
   if (install.installed) return;
   install.installed = true;
-  Object.values(components).map((component) => {
+  Object.values(components).map(component => {
     Vue.component(component.name, component);
   });
-  Object.values(directives).map((directive) => {
+  Object.values(directives).map(directive => {
     Vue.directive(directive.name, directive);
   });
-  Object.values(vueInstanceFun).map((fun) => {
+  Object.values(vueInstanceFun).map(fun => {
     Vue.use(fun);
   });
 };
